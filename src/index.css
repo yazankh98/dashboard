@@ -1,0 +1,14 @@
+.dark {
+    background-color: rgb(40, 52, 70);
+    color: white;
+}
+
+.light {
+    background-color: white;
+    color: black;
+}
+
+
+.theme {
+    transition: 0.3s all ease-in;
+}
