@@ -11,6 +11,9 @@ const CreateProduct = () => {
     const [Image, setImage] = useState<string | null>(null)
     let token: string = localStorage.getItem("token") as string
     token = JSON.parse(token)
+    function A() {
+        setTheme("dark")
+    }
     function createItem(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         axios.post('https://vica.website/api/items', {
@@ -39,6 +42,7 @@ const CreateProduct = () => {
     return (
         <div style={{ backgroundColor: (theme === 'dark') ? "rgb(26, 36, 50)" : "", }} className={` theme bg-maincolor fixed w-80vw  h-90vh top-10vh left-20% mobile:left-0 mobile:w-full`} >
             <div className=" w-11/12 my-6 mx-auto ">
+            <button className='hidden' onClick={A} ></button>
                 <h1 className="text-2xl" >Create product</h1>
                 <form className='flex justify-between' onSubmit={(event) => { createItem(event) }}>
                     <div className='w-1/2'>

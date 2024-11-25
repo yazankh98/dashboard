@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react"
 import Swal from 'sweetalert2'
 import { ThemeContext } from './context/ThemeContext'
 import { useNavigate } from "react-router-dom"
-import { height } from "@fortawesome/free-brands-svg-icons/fa42Group"
+
 const Home = () => {
     const [theme, setTheme] = useContext(ThemeContext)
 
@@ -54,6 +54,9 @@ const Home = () => {
             }
         });
     };
+    function A() {
+        setTheme("dark")
+    }
     return (
         <div style={{ backgroundColor: (theme === 'dark') ? "rgb(26, 36, 50)" : "", }} className={` theme bg-maincolor absolute w-77vw h-full   top-10vh left-20% mobile:left-0 mobile:w-full`} >
             <div className="flex w-75vw justify-between my-6 mx-auto ">
@@ -68,6 +71,7 @@ const Home = () => {
                             <div >
                                 <img className=" object-cover h-20vh  w-full " src={item.image_url} alt="" />
                             </div>
+                            <button className='hidden' onClick={A} ></button>
                             <b className="mx-2 my-5"  > {item.name}</b>
                             <p className="mx-2 my-5 text-priceColor "  > ${item.price}</p>
                             <div className="flex justify-between mx-2" >
