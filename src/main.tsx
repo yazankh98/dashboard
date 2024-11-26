@@ -10,6 +10,8 @@ import PrivateRoutes from './PrivateRoutes'
 import Layout from './Layout'
 import { ThemeContext } from "./context/ThemeContext";
 import CreateProduct from './CreateProduct'
+import EditeProduct from './EditeProduct'
+import NotFound from './NotFound'
 
 
 const Main: React.FC = () => {
@@ -47,21 +49,26 @@ const Main: React.FC = () => {
         {
           path: "Home",
           element: (
-            <PrivateRoutes>
-              <ThemeContext.Provider value={[theme, setTheme]}>
-                <div className={`${theme} theme`} >
-                  <Home />
-                </div>
-              </ThemeContext.Provider>
-            </PrivateRoutes>
+            <ThemeContext.Provider value={[theme, setTheme]}>
+              <div className={`${theme} theme`} >
+                <Home />
+              </div>
+            </ThemeContext.Provider>
           )
         }, {
           path: "Create",
-          element: (
-            <CreateProduct />
-          )
-        }
+          element: <CreateProduct />
+        }, {
+          path: "Edite",
+          element: <EditeProduct />
+        },
       ]
+
+    }
+    ,
+    {
+      path: "*",
+      element: <NotFound />
     }
   ])
   return (

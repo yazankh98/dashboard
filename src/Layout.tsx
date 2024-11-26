@@ -72,7 +72,7 @@ const Layout = () => {
                     <ul className="no-underline absolute w-full top-24 " >
                         <div className="flex items-center justify-center" >
                             <i className=" mx-2 fa-solid fa-shapes"></i>
-                            <Link className="block " to={""} > product</Link>
+                            <Link className="block " to={"/layout/home"} > product</Link>
                         </div>
                         <div className="flex items-center justify-center my-5" >
                             <i className=" mx-2  fa-regular fa-heart"></i>

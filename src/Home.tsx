@@ -4,9 +4,9 @@ import Swal from 'sweetalert2'
 import { ThemeContext } from './context/ThemeContext'
 import { useNavigate } from "react-router-dom"
 
+
 const Home = () => {
     const [theme, setTheme] = useContext(ThemeContext)
-
     const navigate = useNavigate();
     function goToCreateProduct() {
         navigate('/layout/Create');
@@ -23,13 +23,14 @@ const Home = () => {
                     Authorization: `Bearer ${token}`,
                 }
             }
-
         ).then(res => {
             setdata(res.data)
         })
     }, [])
-
-
+    function EditeProduct(id: number) {
+        localStorage.setItem('item_Id', JSON.stringify(id));
+        navigate('/layout/Edite');
+    }
     const deleteItem = (id: number) => {
         Swal.fire({
             title: "Are you sure?",
@@ -74,7 +75,7 @@ const Home = () => {
                             <b className="mx-2 my-5"  > {item.name}</b>
                             <p className="mx-2 my-5 text-priceColor "  > ${item.price}</p>
                             <div className="flex justify-between mx-2" >
-                                <button className="bg-slate-500 px-2 rounded-3xl" >edite product</button>
+                                <button onClick={() => { EditeProduct(item.id) }} className="bg-slate-500 px-2 rounded-3xl" >edite product</button>
                                 <div onClick={() => { deleteItem(item.id) }} >
                                     <i className="fa-solid fa-trash"></i>
                                 </div>
