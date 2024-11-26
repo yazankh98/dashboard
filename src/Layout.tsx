@@ -18,9 +18,6 @@ const Layout = () => {
     const [theme, setTheme] = useContext(ThemeContext)
     const [menu, setmenu] = useState<boolean>(false)
     const notify = () => toast("You have been logged out successfully");
-
-
-    // const notifyHi = () => toast(`Hi , ${firstName}  ${lastName}`);
     let token: string = localStorage.getItem("token") as string
     let firstName: string = localStorage.getItem("firstName") as string
     let lastName: string = localStorage.getItem("lastName") as string
@@ -67,11 +64,12 @@ const Layout = () => {
         });
     }
     return (
-        <>
-        <br />
-            <nav className="  w-1/5 h-screen mobile:hidden" >
-                <div className="text-center my-10vh" >
-                    <ul className="no-underline" >
+        <div className="h-screen">
+            {/* left bar */}
+            <nav className="  w-1/5 relative h-screen mobile:hidden" >
+
+                <div className="text-center " >
+                    <ul className="no-underline absolute w-full top-24 " >
                         <div className="flex items-center justify-center" >
                             <i className=" mx-2 fa-solid fa-shapes"></i>
                             <Link className="block " to={""} > product</Link>
@@ -86,21 +84,15 @@ const Layout = () => {
                         </div>
                     </ul>
                 </div>
-                <div className="text-center   " >
+                <div className="text-center absolute bottom-2 w-full   " >
                     <button className="  rounded-md bg-cyan-600 w-4/5 py-1 text-white" onClick={() => {
-                    
+
                         logout();
                     }} > logout</button>
                 </div>
             </nav>
-
-
-
-
-
-
-
-            <nav className={`${theme} theme justify-between items-center h-11% flex w-full absolute top-0  `} >
+            {/* top bar */}
+            <nav className={`${theme} theme justify-between items-center  flex w-full absolute top-0  `} >
                 <div >
                     <p className=" mx-2  text-3xl" ><span className="text-cyan-600 font-extrabold" >Dash</span><span className="font-extrabold">Stack</span></p>
                 </div>
@@ -143,13 +135,6 @@ const Layout = () => {
                         }
                     </div>
                 </div>
-                {/* -------------------------------------------------------------------------------------------- */}
-
-
-
-
-
-
 
                 {/* menu for mobile */}
                 <div className=" desktop:hidden mobile:block z-10 ">
@@ -191,23 +176,23 @@ const Layout = () => {
                                 }} > logout</button>
                             </div>
                             <form className={`${theme} form theme my-2 mx-auto`}  >
-                        <label className="border border-solid border-slate-500 bg-slate-200 rounded-2xl  " htmlFor="search"  >
-                            <input required autoComplete="off" placeholder="search product" id="search" type="text" />
-                            <div className="icon">
-                                <svg strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="swap-on">
-                                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" strokeLinejoin="round" strokeLinecap="round"></path>
-                                </svg>
-                                <svg strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="swap-off">
-                                    <path d="M10 19l-7-7m0 0l7-7m-7 7h18" strokeLinejoin="round" strokeLinecap="round"></path>
-                                </svg>
-                            </div>
-                            <button type="reset" className="close-btn">
-                                <svg viewBox="0 0 20 20" className="h-5 w-5" xmlns="http://www.w3.org/2000/svg">
-                                    <path clipRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" fillRule="evenodd"></path>
-                                </svg>
-                            </button>
-                        </label>
-                    </form>
+                                <label className="border border-solid border-slate-500 bg-slate-200 rounded-2xl  " htmlFor="search"  >
+                                    <input required autoComplete="off" placeholder="search product" id="search" type="text" />
+                                    <div className="icon">
+                                        <svg strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="swap-on">
+                                            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" strokeLinejoin="round" strokeLinecap="round"></path>
+                                        </svg>
+                                        <svg strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="swap-off">
+                                            <path d="M10 19l-7-7m0 0l7-7m-7 7h18" strokeLinejoin="round" strokeLinecap="round"></path>
+                                        </svg>
+                                    </div>
+                                    <button type="reset" className="close-btn">
+                                        <svg viewBox="0 0 20 20" className="h-5 w-5" xmlns="http://www.w3.org/2000/svg">
+                                            <path clipRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" fillRule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </label>
+                            </form>
                         </nav>
                         <div onClick={() => {
                             {
@@ -224,7 +209,7 @@ const Layout = () => {
                 </div>
             </nav>
             <Outlet />
-        </>
+        </div>
     )
 }
 

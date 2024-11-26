@@ -58,7 +58,7 @@ const Home = () => {
         setTheme("dark")
     }
     return (
-        <div style={{ backgroundColor: (theme === 'dark') ? "rgb(26, 36, 50)" : "", }} className={` theme bg-maincolor absolute w-77vw h-full   top-10vh left-20% mobile:left-0 mobile:w-full`} >
+        <div style={{ backgroundColor: (theme === 'dark') ? "rgb(26, 36, 50)" : "", }} className={` theme h-90% bg-maincolor absolute w-77vw top-10% left-20% mobile:left-0 mobile:w-full`} >
             <div className="flex w-75vw justify-between my-6 mx-auto ">
                 <h1 className="text-2xl" >All products</h1>
                 <button onClick={goToCreateProduct} className="mobile:min-w-43vw  rounded-md bg-cyan-600 py-1  px-2 text-white" > <i className="fa-solid mx-1 fa-plus"></i> Create Prouduct</button>
@@ -66,7 +66,6 @@ const Home = () => {
             <div className="flex flex-wrap justify-around mobile:flex-col mx-auto" >
                 {data.map((item, index) => {
                     return (
-
                         <div key={index} className={`${theme} w-1/4 theme  bg-white h-max pb-3 m-4 rounded-md mobile:w-11/12 `} >
                             <div >
                                 <img className=" object-cover h-20vh  w-full " src={item.image_url} alt="" />
