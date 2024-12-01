@@ -73,7 +73,7 @@ const Main: React.FC = () => {
   ])
   return (
     <StrictMode>
-      <RouterProvider router={routes} />
+      <RouterProvider  router={routes} />
       <ToastContainer autoClose={1500} transition={Slide} />
     </StrictMode>
   );
