@@ -51,7 +51,7 @@ const Home = () => {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
-                }).then(() => { window.location.href = "/layout/home" })
+                }).then(() => { window.location.href = "/layout/Home" })
             }
         });
     };

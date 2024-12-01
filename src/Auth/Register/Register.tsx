@@ -44,7 +44,7 @@ const Register = () => {
 
             console.log(res);
             localStorage.removeItem('uploadedImage')
-            window.location.href = '/layout/home';
+            window.location.href = '/layout/Home';
         }).catch(err => {
             if (axios.isAxiosError(err)) {
                 toast.error(err.response?.data?.message || 'An error occurred');

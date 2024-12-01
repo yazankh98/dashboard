@@ -41,7 +41,7 @@ const Login = () => {
     const handleRedirect = () => {
         toast.success("You have been logged in successfully", {
             onClose: () => {
-                window.location.href = '/layout/home';
+                window.location.href = '/layout/Home';
             },
         });
     }
