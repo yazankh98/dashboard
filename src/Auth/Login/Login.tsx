@@ -52,7 +52,7 @@ const Login = () => {
             <form onSubmit={(event) => { onSubmit(event) }} >
                 <div className=" flex flex-col justify-around w-1/3 mobile:w-3/4 h-96 position: fixed top-1/2 left-1/2  -translate-y-2/4 rounded-xl -translate-x-2/4 bg-gray-50">
                     <div className="m-3" >
-                        <h1 className="text-3xl text-center  ">Login to Account</h1>
+                        {/* <h1 className="text-3xl text-center  ">Login to Account</h1> */}
                         <p className="text-xs m-2 text-slate-600 text-center " >please enter your email and password to continue</p>
                         <label className="mt-3.5" htmlFor="email">Email address :</label> <br />
                         <input onChange={(event) => { setemail(event.target.value) }}
