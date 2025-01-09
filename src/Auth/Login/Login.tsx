@@ -22,7 +22,11 @@ const Login = () => {
             'email': email,
             'password': password
         }).then(res => {
-
+            toast.success("You have been logged in successfully", {
+                onClose: () => {
+                    window.location.href = '/layout/Home';
+                },
+            })
             localStorage.setItem("firstName", JSON.stringify(res.data.user.first_name));
             localStorage.setItem("lastName", JSON.stringify(res.data.user.last_name));
             localStorage.setItem("userName", JSON.stringify(res.data.user.user_name));
@@ -38,13 +42,9 @@ const Login = () => {
             }
         });
     }
-    const handleRedirect = () => {
-        toast.success("You have been logged in successfully", {
-            onClose: () => {
-                window.location.href = '/layout/Home';
-            },
-        });
-    }
+
+
+
 
     return (
         <>
@@ -64,7 +64,7 @@ const Login = () => {
                             type="password" name="password" id="password" placeholder="******" /> <br />
                     </div>
                     <div className="text-center" >
-                        <button onClick={() => { handleRedirect() }} className="rounded-md bg-cyan-600 w-4/5 py-1 text-white" type="submit">Log In</button> <br />
+                        <button className="rounded-md bg-cyan-600 w-4/5 py-1 text-white" type="submit">Log In</button> <br />
                         <span>Don't have an account? <br />
                             <button className="text-cyan-600" onClick={goToRegister} ><u>Create Account</u></button>
                         </span>
